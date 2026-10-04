@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: TV Service API
+  version: 1.0.0
+paths:
+  /api/subscriptions:
+    get:
+      summary: Get all subscriptions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subscription'
+components:
+  schemas:
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum: [BASIC, PREMIUM, VIP, SPORTS, MOVIES]
